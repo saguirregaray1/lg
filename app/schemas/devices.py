@@ -16,6 +16,7 @@ class Credential(BaseModel):
 class Device(BaseModel):
     name: str
     address: IPvAnyAddress
+    port: int = 22
     platform: Platform
     credentials: Credential
 

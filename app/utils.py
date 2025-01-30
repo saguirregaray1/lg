@@ -28,3 +28,13 @@ def read_yaml_file(path: FilePath, model_class: Type[T]) -> T:
             status_code=422,
             detail=f"Invalid configuration data: {exc}",
         )
+
+
+async def read_stream(stream, output):
+    """Read lines from a stream and write them to the output in real-time."""
+    while True:
+        line = await stream.readline()
+        if not line:
+            break
+        output.write(line)
+        output.flush()

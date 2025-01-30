@@ -11,3 +11,10 @@ devices:
       credentials:
           username: you
           password: your password
+    - name: Example router 3
+      address: 127.0.0.1
+      port: 2222
+      platform: cisco_ios
+      credentials:
+        username: root
+        password: ffr
