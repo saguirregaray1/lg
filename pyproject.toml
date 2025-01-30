@@ -3,8 +3,11 @@ name = "lg"
 version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
-requires-python = ">=3.13"
+requires-python = ">=3.12"
 dependencies = [
     "fastapi[standard]>=0.115.7",
+    "pydantic-settings>=2.7.1",
+    "python-dotenv>=1.0.1",
+    "pyyaml>=6.0.2",
     "uvicorn>=0.34.0",
 ]

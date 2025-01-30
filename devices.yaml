@@ -1,0 +1,13 @@
+devices:
+    - name: Example router 1
+      address: 192.0.2.1
+      platform: cisco_ios
+      credentials:
+          username: you
+          password: your password
+    - name: Example router 2
+      address: 192.0.2.2
+      platform: juniper
+      credentials:
+          username: you
+          password: your password

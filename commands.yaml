@@ -1,0 +1,9 @@
+commands:
+  cisco_ios:
+    ping: "ping {target}"
+    traceroute: "traceroute {target}"
+    bgp_route: "show ip bgp"
+  juniper:
+    ping: "ping {target} count 5"
+    traceroute: "traceroute {target} detail"
+    bgp_route: "show route protocol bgp"
