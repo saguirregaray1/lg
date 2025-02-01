@@ -30,11 +30,10 @@ def read_yaml_file(path: FilePath, model_class: Type[T]) -> T:
         )
 
 
-async def read_stream(stream, output):
+async def read_stream(stream):
     """Read lines from a stream and write them to the output in real-time."""
     while True:
         line = await stream.readline()
         if not line:
             break
-        output.write(line)
-        output.flush()
+        yield line.encode()
