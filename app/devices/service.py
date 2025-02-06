@@ -1,7 +1,7 @@
 from fastapi import HTTPException
 
-from app.db.devices import read_devices, read_devices_by_address
-from app.schemas.devices import IPv4WithPortModel
+from app.devices.db import read_devices, read_devices_by_address
+from app.devices.schema import IPv4WithPortModel
 
 
 async def get_devices(ip_addr: IPv4WithPortModel | None = None):

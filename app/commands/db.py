@@ -1,7 +1,7 @@
 from app.core.config import settings
-from ..schemas.commands import CommandsFile
-from ..schemas.devices import Platform
-from ..utils import read_yaml_file
+from app.commands.schema import CommandsFile
+from app.devices.schema import Platform
+from app.utils import read_yaml_file
 
 
 def load_commands():

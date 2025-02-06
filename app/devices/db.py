@@ -1,8 +1,8 @@
 from fastapi import HTTPException
 
 from app.core.config import settings
-from ..schemas.devices import DevicesFile, IPv4WithPortModel
-from ..utils import read_yaml_file
+from app.devices.schema import DevicesFile, IPv4WithPortModel
+from app.utils import read_yaml_file
 
 
 def load_devices():

@@ -1,9 +1,9 @@
 from fastapi import APIRouter
 from fastapi.responses import StreamingResponse
 
-from ..schemas.commands import RunPing
-from ..schemas.devices import Platform
-from ..services.commands import (
+from app.commands.schema import RunPing
+from app.devices.schema import Platform
+from app.commands.service import (
     get_commands_by_platform,
     run_ping_command,
 )

@@ -1,7 +1,7 @@
 from fastapi import APIRouter
 from pydantic import IPvAnyAddress
 
-from app.services.devices import get_devices
+from app.devices.service import get_devices
 
 
 router = APIRouter()

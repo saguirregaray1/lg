@@ -1,5 +1,5 @@
 from pydantic import BaseModel, IPvAnyAddress
-from .devices import Platform, IPv4WithPortModel
+from app.devices.schema import Platform, IPv4WithPortModel
 from typing import Dict
 from enum import Enum
 
