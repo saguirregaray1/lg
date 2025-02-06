@@ -1,10 +1,10 @@
 from fastapi import HTTPException
-from pydantic import IPvAnyAddress
 
 from app.db.devices import read_devices, read_devices_by_address
+from app.schemas.devices import IPv4WithPortModel
 
 
-async def get_devices(ip_addr: IPvAnyAddress | None = None):
+async def get_devices(ip_addr: IPv4WithPortModel | None = None):
     if ip_addr:
         devices = read_devices_by_address(ip_addr)
     else:

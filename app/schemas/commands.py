@@ -1,5 +1,5 @@
 from pydantic import BaseModel, IPvAnyAddress
-from .devices import Platform
+from .devices import Platform, IPv4WithPortModel
 from typing import Dict
 from enum import Enum
 
@@ -11,7 +11,7 @@ class Command(Enum):
 
 
 class RunPing(BaseModel):
-    from_device: IPvAnyAddress
+    from_device: IPv4WithPortModel
     target: IPvAnyAddress
 
 
