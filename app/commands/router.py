@@ -1,10 +1,10 @@
 from fastapi import APIRouter
 from fastapi.responses import StreamingResponse
 
-from app.commands.schema import RunPing
+from app.commands.schema import RunCommand
 from app.commands.service import (
+    execute_command,
     get_commands_by_platform,
-    run_ping_command,
 )
 from app.devices.schema import Platform
 
@@ -17,7 +17,7 @@ async def read_commands(platform: Platform | None = None):
 
 
 @router.post("/", response_class=StreamingResponse)
-async def run_ping(
-    command_data: RunPing,
+async def run_command(
+    command_data: RunCommand,
 ):
-    return await run_ping_command(command_data)
+    return await execute_command(command_data)

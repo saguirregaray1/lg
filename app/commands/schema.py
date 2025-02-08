@@ -12,9 +12,10 @@ class Command(Enum):
     bgp = "bgp_route"
 
 
-class RunPing(BaseModel):
+class RunCommand(BaseModel):
     from_device: IPv4WithPortModel
-    target: IPvAnyAddress
+    target: IPvAnyAddress | None = None
+    command: Command
 
 
 class CommandSet(BaseModel):

@@ -3,7 +3,7 @@ from fastapi import HTTPException
 from fastapi.responses import StreamingResponse
 
 from app.commands.db import read_commands_by_platform
-from app.commands.schema import Command, RunPing
+from app.commands.schema import RunCommand
 from app.devices.schema import Device, Platform
 from app.devices.service import get_devices
 from app.utils import read_stream
@@ -18,21 +18,20 @@ async def get_commands_by_platform(platform: Platform | None = None):
     return commands
 
 
-async def run_ping_command(ping_data: RunPing):
-    device = await get_devices(ping_data.from_device)
+async def execute_command(command_data: RunCommand):
+    device = await get_devices(command_data.from_device)
 
     if not device:
         raise HTTPException(status_code=404, detail="Device not found")
 
     platform_comms = await get_commands_by_platform(device.platform)
 
-    ping_command = platform_comms.get_command(Command.ping)
+    command = platform_comms.get_command(command_data.command)
 
-    ping_command = ping_command.format(target=ping_data.target) + " -w 5"
+    if command_data.target:
+        command = command.format(target=command_data.target)
 
-    return StreamingResponse(
-        generate_stream(device, ping_command), media_type="text/plain"
-    )
+    return StreamingResponse(generate_stream(device, command), media_type="text/plain")
 
 
 async def generate_stream(device: Device, command: str):
