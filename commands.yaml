@@ -7,3 +7,8 @@ commands:
     ping: "ping {target}"
     traceroute: "traceroute {target} detail"
     bgp_route: "show route protocol bgp"
+  frrouting:
+    ping: "ping {target}"
+    traceroute: "traceroute {target}"
+    bgp_route: "vtysh -c 'show ip bgp {target}'"
+    config: "vtysh -c 'show running-config'"

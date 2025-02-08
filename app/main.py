@@ -1,6 +1,7 @@
-from commands.router import router as commands_router
-from devices.router import router as devices_router
 from fastapi import FastAPI
+
+from .commands.router import router as commands_router
+from .devices.router import router as devices_router
 
 app = FastAPI()
 

@@ -1,24 +1,12 @@
 devices:
-    - name: Example router 1
-      address: 192.0.2.1
-      platform: cisco_ios
-      credentials:
-          username: you
-          password: your password
-    - name: Example router 2
-      address: 192.0.2.2
-      platform: juniper
-      credentials:
-          username: you
-          password: your password
-    - name: frr100
+    - name: frr1
       address: 127.0.0.1
       port: 2222
       platform: frrouting
       credentials:
         username: root
         password: ffr
-    - name: frr200
+    - name: frr2
       address: 127.0.0.1
       port: 2223
       platform: frrouting
