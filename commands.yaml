@@ -3,6 +3,7 @@ commands:
     ping: "ping {target}"
     traceroute: "traceroute {target}"
     bgp_route: "show ip bgp"
+    config: "show running-config"
   juniper:
     ping: "ping {target}"
     traceroute: "traceroute {target} detail"
