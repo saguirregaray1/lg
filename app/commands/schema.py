@@ -1,7 +1,9 @@
-from pydantic import BaseModel, IPvAnyAddress
-from app.devices.schema import Platform, IPv4WithPortModel
-from typing import Dict
 from enum import Enum
+from typing import Dict
+
+from pydantic import BaseModel, IPvAnyAddress
+
+from app.devices.schema import IPv4WithPortModel, Platform
 
 
 class Command(Enum):

@@ -1,5 +1,5 @@
-from app.core.config import settings
 from app.commands.schema import CommandsFile
+from app.core.config import settings
 from app.devices.schema import Platform
 from app.utils import read_yaml_file
 

@@ -1,11 +1,10 @@
+import asyncssh
 from fastapi import HTTPException
 from fastapi.responses import StreamingResponse
 
 from app.commands.db import read_commands_by_platform
-from app.commands.schema import RunPing, Command
-from app.devices.schema import Platform, Device
-import asyncssh
-
+from app.commands.schema import Command, RunPing
+from app.devices.schema import Device, Platform
 from app.devices.service import get_devices
 from app.utils import read_stream
 

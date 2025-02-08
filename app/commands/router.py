@@ -2,11 +2,11 @@ from fastapi import APIRouter
 from fastapi.responses import StreamingResponse
 
 from app.commands.schema import RunPing
-from app.devices.schema import Platform
 from app.commands.service import (
     get_commands_by_platform,
     run_ping_command,
 )
+from app.devices.schema import Platform
 
 router = APIRouter()
 

@@ -1,14 +1,15 @@
+from typing import TypeVar
+
 import yaml
-from pydantic import FilePath, BaseModel
 from fastapi import HTTPException
-from typing import Type, TypeVar
+from pydantic import BaseModel, FilePath
 
 T = TypeVar("T", bound=BaseModel)
 
 
-def read_yaml_file(path: FilePath, model_class: Type[T]) -> T:
+def read_yaml_file(path: FilePath, model_class: type[T]) -> T:
     try:
-        with open(path, "r") as f:
+        with open(path) as f:
             data = yaml.safe_load(f)
     except yaml.YAMLError:
         raise HTTPException(

@@ -6,6 +6,7 @@ from typing import List
 class Platform(str, Enum):
     cisco_ios = "cisco_ios"
     juniper = "juniper"
+    frr = "frrouting"
 
 
 class Credential(BaseModel):
