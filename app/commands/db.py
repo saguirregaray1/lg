@@ -5,7 +5,9 @@ from app.utils import read_yaml_file
 
 
 def load_commands():
-    commands_file = read_yaml_file(settings.commands_path, CommandsFile)
+    commands_file = read_yaml_file(
+        settings.config_path.name + "/commands.yaml", CommandsFile
+    )
 
     return commands_file.commands
 

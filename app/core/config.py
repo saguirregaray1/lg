@@ -1,13 +1,12 @@
 from dotenv import load_dotenv
-from pydantic import FilePath
+from pydantic import DirectoryPath
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 load_dotenv()
 
 
 class Settings(BaseSettings):
-    devices_path: FilePath
-    commands_path: FilePath
+    config_path: DirectoryPath
 
     model_config = SettingsConfigDict(env_prefix="")
 

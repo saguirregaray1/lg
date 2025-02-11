@@ -6,7 +6,9 @@ from app.utils import read_yaml_file
 
 
 def load_devices():
-    devices_data = read_yaml_file(settings.devices_path, DevicesFile)
+    devices_data = read_yaml_file(
+        settings.config_path.name + "/devices.yaml", DevicesFile
+    )
 
     devices = {}
     for device in devices_data.devices:
