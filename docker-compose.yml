@@ -31,9 +31,9 @@ services:
       dockerfile: lg.Dockerfile
     container_name: lg
     volumes:
-      - ./lg-config:${CONFIG_PATH}
+      - ./lg-config:${CONFIG_PATH:-/etc/lg-config}
     environment:
-      - CONFIG_PATH=${CONFIG_PATH}
+      - CONFIG_PATH=${CONFIG_PATH:-/etc/lg-config}
     ports:
       - "8000:80"
     networks:
