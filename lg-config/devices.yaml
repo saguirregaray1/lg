@@ -1,14 +1,14 @@
 devices:
     - name: frr1
-      address: 127.0.0.1
-      port: 2222
+      address: 172.28.0.2
+      port: 22
       platform: frrouting
       credentials:
         username: root
         password: ffr
     - name: frr2
-      address: 127.0.0.1
-      port: 2223
+      address: 172.28.0.3
+      port: 22
       platform: frrouting
       credentials:
         username: root
