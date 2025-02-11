@@ -41,6 +41,7 @@ async def generate_stream(device: Device, command: str):
             username=device.credentials.username,
             password=device.credentials.password,
             port=device.port,
+            options=asyncssh.SSHClientConnectionOptions(known_hosts=None),
         ) as conn:
             process = await conn.create_process(command)
 
