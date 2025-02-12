@@ -30,15 +30,20 @@ services:
       context: .
       dockerfile: lg.Dockerfile
     container_name: lg
-    volumes:
-      - ./lg-config:${CONFIG_PATH:-/etc/lg-config}
     environment:
-      - CONFIG_PATH=${CONFIG_PATH:-/etc/lg-config}
+      - CONFIG_PATH=/app/lg-config
     ports:
       - "8000:80"
     networks:
       net:
         ipv4_address: 172.28.0.4
+    develop:
+      watch:
+        - action: sync
+          path: ./app
+          target: /app/app
+        - action: rebuild
+          path: ./lg-config
 
 networks:
   net:
