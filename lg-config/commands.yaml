@@ -1,13 +1,12 @@
 commands:
-  cisco_ios:
-    ping: "ping {target}"
+  cisco_xr:
+    ping: "ping -c {target}"
     traceroute: "traceroute {target}"
-    bgp_route: "show ip bgp"
-    config: "show running-config"
+    bgp_route: "show bgp ipv4 unicast {target}"
   juniper:
-    ping: "ping {target}"
-    traceroute: "traceroute {target} detail"
-    bgp_route: "show route protocol bgp"
+    ping: "ping -c {target}"
+    traceroute: "traceroute {target}"
+    bgp_route: "show route protocol bgp table Internet.inet.0 {target} detail"
   frrouting:
     ping: "ping {target}"
     traceroute: "traceroute {target}"
