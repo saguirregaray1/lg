@@ -1,10 +1,12 @@
 from enum import Enum
-from pydantic import BaseModel, IPvAnyAddress, field_validator
 from typing import List
+
+from pydantic import BaseModel, IPvAnyAddress, field_validator
 
 
 class Platform(str, Enum):
     cisco_ios = "cisco_ios"
+    cisco_xr = "cisco_xr"
     juniper = "juniper"
     frr = "frrouting"
 
