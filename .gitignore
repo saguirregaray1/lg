@@ -175,6 +175,6 @@ cython_debug/
 # PyPI configuration file
 .pypirc
 
-lg-config/
-lg-config/*
+lg-config/commands.yaml
+lg-config/devices.yaml
 
