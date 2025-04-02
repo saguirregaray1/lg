@@ -7,7 +7,7 @@ load_dotenv()
 
 class Settings(BaseSettings):
     config_path: DirectoryPath
-
+    secret_key: str
     model_config = SettingsConfigDict(env_prefix="")
 
 
