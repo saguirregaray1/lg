@@ -8,9 +8,7 @@ from .devices.router import router as devices_router
 
 app = FastAPI(dependencies=[Depends(authenticate)])
 
-origins = [
-    "http://localhost:8002",
-]
+origins = ["http://localhost:8002", "http://localhost:8003"]
 
 app.add_middleware(
     CORSMiddleware,
