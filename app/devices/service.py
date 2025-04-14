@@ -15,3 +15,9 @@ async def get_devices(ip_addr: IPv4WithPortModel | None = None):
             status_code=404, detail="No commands found for the given platform"
         )
     return devices
+
+
+async def get_devices_names(ip_addr: IPv4WithPortModel | None = None):
+    devices = await get_devices(ip_addr)
+    devices_name_list = [d.name for d in devices.values()]
+    return devices_name_list
