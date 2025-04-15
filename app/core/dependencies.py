@@ -4,7 +4,7 @@ from fastapi import HTTPException, Request
 from app.core.config import settings
 
 
-async def authenticate(request: Request):
+async def authenticate(request: Request) -> None:
     token = request.cookies.get("access_token")
     if not token:
         raise HTTPException(status_code=401, detail="Not authenticated")

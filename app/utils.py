@@ -1,6 +1,8 @@
+from collections.abc import AsyncGenerator
 from typing import TypeVar
 
 import yaml
+from asyncssh import SSHReader
 from fastapi import HTTPException
 from pydantic import BaseModel, FilePath
 
@@ -31,8 +33,9 @@ def read_yaml_file(path: FilePath, model_class: type[T]) -> T:
         )
 
 
-async def read_stream(stream):
+async def read_stream(stream: SSHReader[str]) -> AsyncGenerator[bytes, None]:
     """Read lines from a stream and write them to the output in real-time."""
+    assert isinstance(stream, SSHReader)
     while True:
         line = await stream.readline()
         if not line:

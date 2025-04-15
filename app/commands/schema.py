@@ -1,10 +1,11 @@
 from enum import Enum
 
-from pydantic import BaseModel, IPvAnyAddress, create_model
+from pydantic import BaseModel, IPvAnyAddress
 
-from app.devices.schema import IPv4WithPortModel, Platform
+from app.devices.schema import IPWithPortModel, Platform
 
 
+# IMPORTANT: If you add or remove commands in `Command`, update `CommandSet` fields to match.
 class Command(Enum):
     ping = "ping"
     traceroute = "traceroute"
@@ -12,26 +13,24 @@ class Command(Enum):
     config = "config"
 
 
-class RunCommand(BaseModel):
-    from_device: IPv4WithPortModel
-    target: IPvAnyAddress | None = None
-    command: Command
+class CommandSet(BaseModel):
+    ping: str
+    traceroute: str
+    bgp: str
+    config: str | None = None
 
-
-class CommandSetBase(BaseModel):
-    def get_command(self, command: Command) -> str:
+    def get_command(self, command: Command) -> str | None:
         """
         Retrieve the command string corresponding to a given Command enum.
         Assumes the field names in the model are the same as the enum values.
         """
-        return getattr(self, command.value)
+        return getattr(self, command.value, None)
 
 
-CommandSet = create_model(
-    "CommandSet",
-    __base__=CommandSetBase,
-    **{cmd.value: (str | None, None) for cmd in Command},
-)
+class RunCommand(BaseModel):
+    from_device: IPWithPortModel
+    target: IPvAnyAddress | None = None
+    command: Command
 
 
 class CommandsFile(BaseModel):
