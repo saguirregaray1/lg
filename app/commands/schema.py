@@ -16,7 +16,7 @@ class Command(Enum):
 class CommandSet(BaseModel):
     ping: str
     traceroute: str
-    bgp: str
+    bgp_route: str
     config: str | None = None
 
     def get_command(self, command: Command) -> str | None:
